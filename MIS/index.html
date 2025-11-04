@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ellie Fields | Home</title>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    body {
+      
+      color: #333;
+      background-color: #fff8fb; /* subtle pink background */
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    h1, h2, h3 {
+      color: #6b1636;
+      text-align: center;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    
+    /* === Buttons === */
+    .theme-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.65rem 1.05rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #ff9bb8 0%, #ffc7dd 100%);
+      color: #6b1636;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 12px 36px rgba(234, 86, 143, 0.12);
+      transition: transform 220ms, box-shadow 220ms;
+      border: 1px solid rgba(255,255,255,0.6);
+      font-size: 1rem;
+    }
+
+    .theme-button:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 60px rgba(234,86,143,0.16);
+    }
+
+    /* === Section Containers === */
+    .section-container {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .section-container:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* === Flip Cards === */
+    .flip-card {
+      background: transparent;
+      width: 45%;
+      height: 250px;
+      perspective: 1000px;
+      margin: 0.75rem;
+    }
+
+    .flip-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transform-style: preserve-3d;
+      cursor: pointer;
+      border-radius: 12px;
+    }
+
+    .flip-card.flipped .flip-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .flip-face img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .flip-face.back {
+      transform: rotateY(180deg);
+    }
+
+    .tap-hint {
+      font-size: 0.8rem;
+      color: #666;
+      font-style: italic;
+      margin-bottom: 0.5rem;
+      opacity: 0.8;
+    }
+
+    /* === Hobbies Container === */
+    .hobbies-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 800px) {
+      .flip-card { width: 80%; height: 200px; }
+      .hobbies-container { flex-direction: column; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation Menu -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="hobbies.html">Hobbies</a></li>
+      <li><a href="discover.html">Discover UMD</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><a href="career.html">Career</a></li>
+      <li><a href="game.html">Game</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Welcome to My Website</h1>
+    <p style="max-width:700px; margin:0 auto;">
+      Here you’ll learn a little about me, my passions, career interests, and hobbies that keep me inspired and curious.
+    </p>
+
+    <!-- Flippable Circular Headshot -->
+<div class="flip-card headshot-card" role="button" tabindex="0" aria-label="Flip headshot" 
+     style="width:250px; height:350px; margin:1.5rem auto; perspective:1000px;">
+  <div class="flip-inner" style="width:100%; height:100%;">
+    <!-- FRONT -->
+    <div class="flip-face front" style="width:100%; height:100%; border-radius:50%; overflow:hidden; box-shadow:0 8px 20px rgba(0,0,0,0.15);">
+      <img src="images/Headshot.JPG" alt="Front headshot of Ellie Fields" style="width:100%; height:100%; object-fit:cover; display:block; border-radius:50%; background-color:#fff;">
+    </div>
+    <!-- BACK -->
+    <div class="flip-face back" style="width:100%; height:100%; border-radius:50%; overflow:hidden; transform:rotateY(180deg); box-shadow:0 8px 20px rgba(0,0,0,0.15);">
+      <img src="images/Head.jpeg" alt="Back headshot of Ellie Fields" style="width:100%; height:100%; object-fit:cover; display:block; border-radius:50%; background-color:#fff;">
+    </div>
+  </div>
+</div>
+
+<div class="tap-hint">↺ Tap to flip image</div>
+
+
+    <!-- ===== About Me Section ===== -->
+    <div class="section-container">
+      <h2>ABOUT ME</h2>
+      <p>
+        My name is Ellie Fields, and I’m a Business Finance major at the University of Minnesota Duluth.
+        I’m passionate about economics, problem-solving, and using analytical thinking to help businesses thrive.
+      </p>
+      <p>
+        Outside of academics, I find peace in nature and inspiration in creativity through reading, writing, and singing.
+        My family and faith are at the heart of everything I do.
+      </p>
+
+      <video controls style="max-width:40%; border-radius:16px; box-shadow:0 12px 40px rgba(0,0,0,0.08); display:block; margin:1.2rem auto;">
+        <source src="videos/Introduction.MOV" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <div style="margin-top:1.5rem;">
+        <a href="discover.html" class="theme-button">Explore UMD →</a>
+      </div>
+    </div>
+
+    <!-- ===== Career Section ===== -->
+    <div class="section-container">
+      <h2>Career Interests</h2>
+      <p>
+        My career interests lie in finance, investment analysis, and economics. I’m drawn to roles that combine critical thinking with human connection.
+      </p>
+      <p>
+        I aspire to grow into leadership positions where I can empower others while making a measurable difference in my community.
+      </p>
+      <div style="margin-top:1.5rem;">
+        <a href="career.html" class="theme-button">Learn more →</a>
+        <a href="resume.html" class="theme-button" style="margin-left:1rem;">View Resume →</a>
+      </div>
+    </div>
+
+    <!-- ===== Hobbies Section ===== -->
+    <div class="section-container">
+      <h2>Hobbies</h2>
+      <p style="max-width:700px; margin:0 auto;">
+        Outside of my studies, I stay curious and inspired through activities that connect creativity, nature, and business insight.
+      </p>
+
+      <div class="hobbies-container" style="flex-direction: row; flex-wrap: wrap; justify-content: center;">
+        <!-- Hobby 1 -->
+        <div class="flip-card" role="button" tabindex="0" aria-label="Flip hiking image" style="display:flex; flex-direction:column; align-items:center; height:380px;">
+          <div class="flip-inner">
+            <div class="flip-face front">
+              <img src="images/Hike.jpeg" alt="Hiking at Bear & Bean lake — front view">
+            </div>
+            <div class="flip-face back">
+              <img src="images/hike2.jpeg" alt="Hiking at Bear & Bean lake — alternate view">
+            </div>
+          </div>
+          <div class="tap-hint">↺ Tap to flip image</div>
+          <p style="margin-top:0.5rem;">I love hiking and spending time outdoors. It’s my way to reset, breathe, and feel close to God’s creation.</p>
+        </div>
+
+        <!-- Hobby 2 -->
+        <div class="flip-card" role="button" tabindex="0" aria-label="Flip aquarium image" style="display:flex; flex-direction:column; align-items:center; height:380px;">
+          <div class="flip-inner">
+            <div class="flip-face front">
+              <img src="images/aquarium.jpg" alt="Duluth Aquarium — coral reef exhibit">
+            </div>
+            <div class="flip-face back">
+              <img src="images/Octopus3.jpeg" alt="Duluth Aquarium — octopus display">
+            </div>
+          </div>
+          <div class="tap-hint">↺ Tap to flip image</div>
+          <p style="margin-top:0.5rem;">I’m fascinated by marine life and love exploring aquariums — learning how ecosystems function together inspires me.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:3rem; text-align:center;">
+        <a href="hobbies.html" class="theme-button">Explore my other hobbies →</a>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.flip-card').forEach(card => {
+        card.addEventListener('click', () => card.classList.toggle('flipped'));
+        card.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            card.classList.toggle('flipped');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

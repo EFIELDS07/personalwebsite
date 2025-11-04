@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ellie Fields | Career</title>
+<link rel="stylesheet" href="css/style.css" />
+
+<style>
+body {
+  
+  color: #333;
+  background-color: #fff8fb; /* subtle pink */
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+h1, h2, h3 {
+  color: #6b1636;
+  text-align: center;
+}
+
+main {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+
+
+.theme-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 1.05rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ff9bb8 0%, #ffc7dd 100%);
+  color: #6b1636;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 12px 36px rgba(234, 86, 143, 0.12);
+  transition: transform 220ms, box-shadow 220ms;
+  border: 1px solid rgba(255,255,255,0.6);
+  font-size: 1rem;
+}
+
+.theme-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 60px rgba(234,86,143,0.16);
+}
+
+/* Career Cards */
+.career-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.career-card {
+  background: #fff;
+  width: 300px;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  text-align: left;
+  position: relative;
+}
+
+.career-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+}
+
+.career-card h3 {
+  margin-top: 0;
+  color: #6b1636;
+}
+
+.contact-info {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.career-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.5s ease;
+  font-size: 0.95rem;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.career-card.expanded .career-details {
+  max-height: 500px;
+  padding-top: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* Tap hint */
+.tap-hint {
+  font-size: 0.8rem;
+  color: #666;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 800px) {
+  .career-card { width: 80%; }
+}
+</style>
+</head>
+
+<body>
+<nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="hobbies.html">Hobbies</a></li>
+    <li><a href="discover.html">Discover UMD</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="career.html">Career</a></li>
+    <li><a href="game.html">Game</a></li>
+  </ul>
+</nav>
+
+<main>
+  <h1>Career Goals</h1>
+  <p style="max-width:700px; margin:0 auto;">
+    Click on each card to see more details about why I want to work there and my qualifications.
+  </p>
+
+  <div class="career-container">
+    <div class="career-card" tabindex="0">
+      <h3>Company 1: Awesome Finance Inc.</h3>
+      <p class="contact-info">
+        123 Business Rd, Duluth, MN<br>
+        Phone: (555) 123-4567<br>
+        Email: hr@awesomefinance.com
+      </p>
+      <div class="tap-hint">↕ Tap to expand</div>
+      <div class="career-details">
+        <p><strong>Why interested:</strong> Their investment programs align with my career goals and provide mentorship opportunities.</p>
+        <p><strong>Qualifications:</strong> Business Finance major, strong analytical skills, experience in investment analysis projects.</p>
+      </div>
+    </div>
+
+    <div class="career-card" tabindex="0">
+      <h3>Company 2: Duluth Consulting Group</h3>
+      <p class="contact-info">
+        456 Lake Ave, Duluth, MN<br>
+        Phone: (555) 987-6543<br>
+        Email: careers@duluthconsulting.com
+      </p>
+      <div class="tap-hint">↕ Tap to expand</div>
+      <div class="career-details">
+        <p><strong>Why interested:</strong> Focus on business strategy and local economic growth; perfect match for my skills.</p>
+        <p><strong>Qualifications:</strong> Business Finance major, project management experience, leadership roles in student organizations.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:2.5rem;">
+    <a href="index.html" class="theme-button">← Back to Home</a>
+  </div>
+</main>
+
+<script>
+document.querySelectorAll('.career-card').forEach(card => {
+  card.addEventListener('click', e => {
+    // Only expand the clicked card
+    card.classList.toggle('expanded');
+  });
+
+  card.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      card.classList.toggle('expanded');
+    }
+  });
+});
+</script>
+</body>
+</html>

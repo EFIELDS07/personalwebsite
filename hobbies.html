@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ellie Fields | Hobbies</title>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    body {
+      color: #333;
+      background-color: #fff8fb;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1, h2, h3 {
+      color: #6b1636;
+      text-align: center;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    /* === Shared Button === */
+    .theme-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.65rem 1.05rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #ff9bb8 0%, #ffc7dd 100%);
+      color: #6b1636;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 12px 36px rgba(234, 86, 143, 0.12);
+      transition: transform 220ms, box-shadow 220ms;
+      border: 1px solid rgba(255,255,255,0.6);
+      font-size: 1rem;
+    }
+
+    .theme-button:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 60px rgba(234,86,143,0.16);
+    }
+
+    /* === Hobbies Section Layout === */
+    .hobbies-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+
+    .hobby-item {
+      width: 90%;
+      max-width: 850px;
+      text-align: center;
+      background: #fff;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hobby-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+    }
+
+    .flip-card {
+      background: transparent;
+      width: 100%;
+      height: 300px;
+      perspective: 1000px;
+      margin-bottom: 0.75rem;
+    }
+
+    .flip-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transform-style: preserve-3d;
+      cursor: pointer;
+      border-radius: 12px;
+    }
+
+    .flip-card.flipped .flip-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .flip-face img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .flip-face.back {
+      transform: rotateY(180deg);
+    }
+
+    .tap-hint {
+      font-size: 0.8rem;
+      color: #666;
+      font-style: italic;
+      margin-bottom: 0.5rem;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 600px) {
+      .flip-card { height: 200px; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation Menu -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="hobbies.html">Hobbies</a></li>
+      <li><a href="discover.html">Discover UMD</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><a href="career.html">Career</a></li>
+      <li><a href="game.html">Game</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>My Hobbies & Interests</h1>
+    <p style="text-align:center; max-width:700px; margin:0 auto;">
+      Outside of my studies, I spend time on creative projects, fitness, and exploring history and culture.
+      These hobbies keep me grounded, curious, and constantly learning.
+    </p>
+
+    <div class="hobbies-container">
+      <!-- Hobby 1 -->
+      <div class="hobby-item">
+        <h3>Creative Writing & Poetry</h3>
+        <div class="flip-card" role="button" tabindex="0" aria-label="Flip poetry image">
+          <div class="flip-inner">
+            <div class="flip-face front">
+              <img src="images/writing1.jpg" alt="Notebook and pen for creative writing">
+            </div>
+            <div class="flip-face back">
+              <img src="images/poetry2.jpg" alt="Notebook with handwritten poem">
+            </div>
+          </div>
+        </div>
+        <div class="tap-hint">↺ Tap to flip image</div>
+        <p>Writing is one of my favorite ways to express myself. I love crafting poems and short pieces that explore emotions and everyday life. It helps me slow down, reflect, and stay creative.</p>
+      </div>
+
+      <!-- Hobby 2 -->
+      <div class="hobby-item">
+        <h3>Fitness, Sports, & Staying Active</h3>
+        <div class="flip-card" role="button" tabindex="0" aria-label="Flip sports image">
+          <div class="flip-inner">
+            <div class="flip-face front">
+              <img src="images/sports1.jpg" alt="Track and field or soccer photo">
+            </div>
+            <div class="flip-face back">
+              <img src="images/sports2.jpg" alt="Team sports or hiking image">
+            </div>
+          </div>
+        </div>
+        <div class="tap-hint">↺ Tap to flip image</div>
+        <p>I played soccer, basketball, and track throughout high school — and was captain for all three varsity teams my senior year. That goal taught me leadership, teamwork, and how to build others up. Today, I still love staying active through weightlifting, yoga, and hiking.</p>
+      </div>
+
+      <!-- Hobby 3 -->
+      <div class="hobby-item">
+        <h3>History, Museums & Traditions</h3>
+        <div class="flip-card" role="button" tabindex="0" aria-label="Flip museum image">
+          <div class="flip-inner">
+            <div class="flip-face front">
+              <img src="images/museum1.jpg" alt="Minneapolis History Museum exterior or exhibit">
+            </div>
+            <div class="flip-face back">
+              <img src="images/museum2.jpg" alt="Ancient artifacts exhibit or scrolls">
+            </div>
+          </div>
+        </div>
+        <div class="tap-hint">↺ Tap to flip image</div>
+        <p>One of my favorite places is the History Museum in Minneapolis. I love learning new fun facts and getting immersed in another world that existed before me. I even took an Ancient Civilizations class that made me appreciate how people lived, created art, and played sports—it’s all so fascinating to me.</p>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:2.5rem;">
+      <a href="index.html" class="theme-button">
+        <span>← Back to Home</span>
+      </a>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.flip-card').forEach(card => {
+        const inner = card.querySelector('.flip-inner');
+        function toggleFlip() {
+          card.classList.toggle('flipped');
+        }
+        card.addEventListener('click', toggleFlip);
+        card.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleFlip();
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

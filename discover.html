@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ellie Fields | UMD</title>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    body {
+      color: #333;
+      background-color: #fff8fb; /* subtle pink background */
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    h1, h2, h3 {
+      color: #6b1636;
+      text-align: center;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+   
+
+    /* === Buttons === */
+    .theme-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.65rem 1.05rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #ff9bb8 0%, #ffc7dd 100%);
+      color: #6b1636;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 12px 36px rgba(234, 86, 143, 0.12);
+      transition: transform 220ms, box-shadow 220ms;
+      border: 1px solid rgba(255,255,255,0.6);
+      font-size: 1rem;
+    }
+
+    .theme-button:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 60px rgba(234,86,143,0.16);
+    }
+
+    /* === Section Containers === */
+    .section-container {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .section-container:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* === Video Styling === */
+    .umd-video {
+      max-width: 60%;
+      border-radius: 16px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+      display: block;
+      margin: 1.5rem auto 0 auto;
+    }
+
+    .video-credit {
+      font-size: 0.85rem;
+      color: #666;
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation Menu -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="hobbies.html">Hobbies</a></li>
+      <li><a href="discover.html">Discover UMD</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><a href="career.html">Career</a></li>
+      <li><a href="game.html">Game</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>DISCOVER UMD</h1>
+    <div class="section-container">
+      <h2>Why UMD?</h2>
+      <p>
+        I chose the University of Minnesota Duluth because of its beautiful natural surroundings, inspiring lake views, and a strong Business Finance program.
+        The campus is welcoming and vibrant, and I knew it would give me the academic challenges and growth I wanted.
+      </p>
+    </div>
+
+    <div class="section-container">
+      <h2>Why I Love Duluth</h2>
+      <p>
+        Duluth is more than just a campus—it’s a community. I love the local food, cozy cafes, scenic trails, and the chance to explore culture, nature, and the outdoors all in one place.
+        The city perfectly balances adventure and comfort, making it an ideal place for students to thrive.
+      </p>
+    </div>
+
+    <div class="section-container">
+      <h2>UMD Highlights</h2>
+      <video controls class="umd-video">
+        <source src="videos/GroupVideo.MOV" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="video-credit">
+        Video created by my amazing team: Lily, Marlee, Natalie Hora, and Viv
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:2.5rem;">
+      <a href="index.html" class="theme-button">← Back to Home</a>
+    </div>
+  </main>
+</body>
+</html>

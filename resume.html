@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ellie Fields | Resume</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* --- Background and base font --- */
+    body {
+      margin: 0;
+      
+      background: linear-gradient(180deg, #ffeef3 0%, #fff6f9 60%, #ffffff 100%);
+      background-attachment: fixed;
+      color: #333;
+    }
+
+    main.container { padding-top: 5.5rem; }
+
+    /* --- Resume Card --- */
+    .resume-card {
+      max-width: 1000px;
+      margin: 3rem auto 4rem;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(255,182,193,0.25);
+      padding: 1.8rem;
+      border: 1px solid rgba(255,126,200,0.1);
+    }
+
+    /* --- Header --- */
+    .resume-header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .resume-title {
+      margin: 0;
+      color: #e85a8b;
+      font-size: 1.7rem;
+      font-weight: 600;
+    }
+
+    .muted {
+      color: #777;
+      font-size: 0.95rem;
+    }
+
+    /* --- Buttons --- */
+    .btn {
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 999px;
+      font-weight: 600;
+      cursor: pointer;
+      background: linear-gradient(135deg, #ff85a1, #ffc1d9);
+      color: white;
+      transition: transform .18s ease, box-shadow .18s;
+      text-decoration: none;
+    }
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(255, 133, 161, 0.25);
+    }
+
+    .btn.ghost {
+      background: transparent;
+      color: #e85a8b;
+      border: 1.5px solid #ffc1d9;
+    }
+    .btn.ghost:hover {
+      background: #ffe6f1;
+    }
+
+    /* --- Resume Image Preview --- */
+    .resume-preview {
+      display:flex;
+      justify-content:center;
+      margin-top:1.5rem;
+    }
+    .resume-image {
+      width: 100%;
+      max-width: 780px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(232,90,139,0.15);
+      cursor: zoom-in;
+      transition: transform .25s ease;
+    }
+    .resume-image:hover { transform: translateY(-6px); }
+
+    /* --- Accordion --- */
+    .accordion {
+      margin-top:1.8rem;
+      display:grid;
+      gap:1rem;
+    }
+
+    .accordion-item {
+      border-radius:14px;
+      overflow:hidden;
+      background: linear-gradient(180deg, rgba(255,192,203,0.15), rgba(255,240,245,0.4));
+      border: 1px solid rgba(255,182,193,0.3);
+      box-shadow: 0 4px 10px rgba(255,182,193,0.1);
+    }
+
+    .accordion-header {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0.9rem 1.1rem;
+      cursor:pointer;
+      background: #fff0f5;
+    }
+
+    .accordion-header h3 {
+      margin:0;
+      color:#e85a8b;
+      font-size:1.05rem;
+    }
+
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s;
+      padding: 0 1.1rem;
+      background: #fff;
+    }
+
+    .accordion-body.open {
+      padding: 1rem 1.1rem;
+      max-height: 1000px;
+    }
+
+    /* --- Skills --- */
+    .skills {
+      display:flex;
+      flex-direction:column;
+      gap:0.8rem;
+    }
+
+    .skill-chips {
+      display:flex;
+      flex-wrap:wrap;
+      gap:0.5rem;
+      margin-top:0.5rem;
+    }
+
+    .chip {
+      padding:0.45rem 0.75rem;
+      border-radius:999px;
+      background: #ffe3ec;
+      color:#e85a8b;
+      cursor:pointer;
+      font-weight:600;
+      transition: transform .14s ease, background .18s;
+      border: 1px solid #ffc1d9;
+    }
+    .chip:hover { transform: translateY(-2px); }
+    .chip.active {
+      background: linear-gradient(90deg,#ff85a1,#ffc1d9);
+      color:white;
+    }
+
+    .skill-bar {
+      height:10px;
+      background: rgba(255,192,203,0.25);
+      border-radius:999px;
+      overflow:hidden;
+      margin-top:0.6rem;
+    }
+
+    .skill-bar > i {
+      display:block;
+      height:100%;
+      background: linear-gradient(90deg,#ff85a1,#ffc1d9);
+      width: 0%;
+      transition: width 0.6s ease;
+    }
+
+    /* --- Lightbox --- */
+    .lightbox {
+      position:fixed;
+      inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      background: rgba(0,0,0,0.6);
+      z-index:2000;
+      padding:2rem;
+    }
+    .lightbox.open { display:flex; }
+
+    .lightbox-content {
+      max-width:1200px;
+      width:100%;
+      border-radius:12px;
+      background: #fff0f8;
+      padding:1rem;
+      display:flex;
+      flex-direction:column;
+      gap:0.6rem;
+    }
+
+    .lightbox-img {
+      width:100%;
+      max-height:80vh;
+      object-fit:contain;
+      border-radius:8px;
+    }
+
+    footer {
+      text-align:center;
+      margin-top:2rem;
+      color:#777;
+      font-size:0.9rem;
+    }
+
+    @media (max-width:760px) {
+      .resume-card { margin: 4.5rem 1rem; padding:1.2rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="hobbies.html">Hobbies</a></li>
+      <li><a href="discover.html">Discover UMD</a></li>
+      <li><a href="resume.html" class="active">Resume</a></li>
+      <li><a href="career.html">Career</a></li>
+      <li><a href="game.html">Game</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <div class="resume-card">
+      <div class="resume-header">
+        <div>
+          <h1 class="resume-title">Welcome to My Resume</h1>
+          <p class="muted">Tap the image to expand, scroll for details, to download -> 💗</p>
+        </div>
+        <div class="resume-actions">
+          <a href="files/ElizabethFields.jpg" class="btn" download>📄 Download</a>
+          <button class="btn ghost" id="printBtn">🖨 Print</button>
+        </div>
+      </div>
+
+      <div class="resume-preview">
+        <img src="files/ElizabethFields.jpg" alt="Ellie Fields Resume" class="resume-image" id="resumePreview">
+      </div>
+
+      <div class="accordion">
+        <article class="accordion-item">
+          <header class="accordion-header" data-target="edu">
+            <h3>Current Status: Education</h3>
+            <span class="muted">click to expand</span>
+          </header>
+          <div id="edu" class="accordion-body">
+            <p><strong>University of Minnesota Duluth</strong> — Bachelor of Business Administration, Finance (Minor: Economics). Expected graduation: May 2029.</p>
+            <ul>
+              <li>Relevant coursework: Microeconomics, MIS IT in Business, Business Legal Environment, Principles of Financial Accounting </li>
+              <li>Member of the Women In Business Organization</li>
+              <li>GPA: 4.0 / 4.0</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="accordion-item">
+          <header class="accordion-header" data-target="skills">
+            <h3>Skills & Interests</h3>
+            <span class="muted">click to expand</span>
+          </header>
+          <div id="skills" class="accordion-body">
+            <div class="skills">
+              <div>
+                <strong>Technical & Analytical</strong>
+                <div class="skill-chips">
+                  <button class="chip" data-skill="Excel">Excel</button>
+                  <button class="chip" data-skill="PowerBI">Power BI</button>
+                  <button class="chip" data-skill="QuickBooks">QuickBooks</button>
+                </div>
+                <div class="skill-bar"><i class="bar-tech"></i></div>
+              </div>
+
+              <div>
+                <strong>Communication & Leadership</strong>
+                <div class="skill-chips">
+                  <button class="chip" data-skill="PublicSpeaking">Public Speaking</button>
+                  <button class="chip" data-skill="Teamwork">Teamwork</button>
+                  <button class="chip" data-skill="Writing">Writing</button>
+                </div>
+                <div class="skill-bar"><i class="bar-comm"></i></div>
+              </div>
+
+              <div>
+                <strong>Personal Interests</strong>
+                <p class="muted">Economics, Entrepreneurship, Stock markets & Finnancial Investing, Financial strategy, and 
+    Innovative Business Development.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+      <img src="files/ElizabethFields.jpg" alt="Resume Enlarged" class="lightbox-img" id="lightboxImage">
+      <div style="text-align:right;">
+        <button id="closeLb" class="btn ghost">Close ✕</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Ellie Fields | Built with creativity & caffeine ☕</p>
+  </footer>
+
+  <script>
+    // Accordion open/close
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const body = document.getElementById(header.dataset.target);
+        body.classList.toggle('open');
+      });
+    });
+
+    // Lightbox
+    const preview = document.getElementById('resumePreview');
+    const lightbox = document.getElementById('lightbox');
+    const closeLb = document.getElementById('closeLb');
+    preview.addEventListener('click', () => lightbox.classList.add('open'));
+    closeLb.addEventListener('click', () => lightbox.classList.remove('open'));
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('open'); });
+
+    // Print
+    document.getElementById('printBtn').addEventListener('click', () => {
+      const w = window.open('files/ElizabethFields.jpg', '_blank');
+      setTimeout(() => w.print(), 500);
+    });
+
+    // Skill bars animation (independent)
+    const skillLevels = {
+      Excel: 50,
+      PowerBI: 0,
+      QuickBooks: 67,
+      PublicSpeaking: 70,
+      Teamwork: 95,
+      Writing: 89
+    };
+
+    document.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        const skill = chip.dataset.skill;
+        const level = skillLevels[skill];
+        let bar;
+        if (['Excel', 'PowerBI', 'QuickBooks'].includes(skill)) {
+          bar = document.querySelector('.bar-tech');
+        } else {
+          bar = document.querySelector('.bar-comm');
+        }
+        bar.style.width = level + '%';
+      });
+    });
+  </script>
+</body>
+</html>
